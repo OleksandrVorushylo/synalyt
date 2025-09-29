@@ -1,0 +1,68 @@
+html {
+	font-size: 16px;
+}
+
+body {
+	position: relative;
+	min-width: 320px;
+	margin: auto;
+	background: linear-gradient(180deg, #09001F 0%, rgba(15, 9, 30, 0.9) 50.98%, #09001F 100%);
+	color: var(--cl-white);
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 1.2;
+
+	overflow-x: hidden;
+
+	&.disabled {
+		overflow-y: scroll;
+		position: fixed;
+
+		width: 100%;
+	}
+}
+
+.swiper-wrapper {
+	left: 0 !important;
+}
+
+#site {
+	position: relative;
+	min-height: 100%; 
+	display: flex;
+	flex-direction: column;
+}
+
+img {
+	transition: opacity 0.1s ease;
+	&.lazyload {
+		opacity: 0;
+	}
+
+	&.lazyloaded {
+		opacity: 1;
+	}
+}
+
+.main {
+	flex-grow: 1;
+}
+
+% default-transition {
+	transition: ease-in-out 0.25s;
+}
+
+.cont {
+	margin: 0 auto;
+	max-width: 1280px;
+	width: perc(1280);
+
+	@mixin tab-md {
+		width: 89%;
+	}
+}
+
+section,header,footer {
+	position: relative;
+	max-width: 100vw;
+}

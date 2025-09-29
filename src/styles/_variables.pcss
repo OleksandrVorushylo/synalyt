@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+:root {
+  --cl-black: #09001F;
+  --cl-white: #ffffff;
+
+  --cl-grey-light: #E6E6E6;
+  --cl-grey: #8A8F98;
+  --cl-grey-dark: #4C4758;
+
+  --cl-green: #10B981;
+  --cl-green-dark: #009B68;
+
+  --cl-purple: #5A00A3;
+  --cl-purple-dark: #22003D;
+
+  --font-main: "Inter", sans-serif;
+
+  /* --mobile-menu-start-point and @custom-media --mobile-menu-start-point must be the same */
+  --mobile-menu-start-point: 1200;
+}
+
+/* --mobile-menu-start-point and @custom-media --mobile-menu-start-point must be the same */
+@custom-media --mobile-menu-start-point (max-width: 1200px);
+
+/* --mobile-menu-end-point must be greater than 1 of the  --mobile-menu-start-point and @custom-media --mobile-menu-start-point */
+@custom-media --mobile-menu-end-point (min-width: 1201px);
