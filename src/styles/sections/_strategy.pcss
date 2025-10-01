@@ -1,0 +1,67 @@
+.strategy-sec {
+  padding-top: var(--main-py);
+  padding-bottom: var(--main-py);
+
+  &__wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  &__title {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    &:not(:last-child) {
+      margin-bottom: 16px;
+    }
+  }
+
+  &__subtitle {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    &:not(:last-child) {
+      margin-bottom: 16px;
+    }
+  }
+
+  &__list {
+    padding-top: ac(16px, 10px);
+    --gap-x: ac(75px, 16px, 640);
+    --columns: 3;
+    --gaps: 2;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: ac(40px, 24px, 551) var(--gap-x);
+  }
+
+  &__item {
+    width: calc((100% - var(--gaps) * var(--gap-x)) / var(--columns));
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 768px) {
+  .strategy-sec {
+    &__list {
+      --columns: 2;
+      --gaps: 1;
+    }
+  }
+}
+
+@media (max-width: 551px) {
+  .strategy-sec {
+    &__list {
+      --columns: 1;
+      --gaps: 0;
+    }
+  }
+}

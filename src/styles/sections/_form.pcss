@@ -1,0 +1,106 @@
+.form-sec {
+  padding-top: var(--main-py);
+  padding-bottom: var(--main-py);
+
+  &__wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  &__title {
+    &:not(:last-child) {
+      margin-bottom: ac(64px, 24px, 551);
+    }
+  }
+
+  &__container {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+
+  &__content, &__form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 48%;
+  }
+
+  &__content {
+    max-width: ac(446px, 420px);
+  }
+
+  &__subtitle {
+    &:not(:last-child) {
+      margin-bottom: 16px;
+    }
+  }
+
+  &__text {
+    &.content-element {
+      p,ul,ol {
+        &:not(:last-child) {
+          margin-bottom: ac(32px, 16px);
+        }
+      }
+    }
+
+    &:not(:last-child) {
+      margin-bottom: ac(48px, 24px);
+    }
+  }
+
+  &__second-text {
+    &.content-element {
+      p,ul,ol {
+        &:not(:last-child) {
+          margin-bottom: 8px;
+        }
+      }
+    }
+  }
+
+  &__form {
+    max-width: ac(480px, 460px);
+  }
+
+  &__form-grid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    grid-column-gap: ac(32px, 16px);
+    grid-row-gap: ac(32px, 18px);
+
+    &:not(:last-child) {
+      margin-bottom: ac(32px, 20px);
+    }
+  }
+
+  &__form-buttons {
+    width: 100%;
+
+    .btn {
+      width: 100%;
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  .form-sec {
+    &__container {
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      grid-row-gap: 30px;
+    }
+
+    &__content, &__form {
+      width: 100%;
+      max-width: 100%;
+    }
+  }
+}

@@ -24,26 +24,51 @@
 	mask-image: radial-gradient(white, black);
 
 	&::before {
-		content: "";
+		content: '';
 		display: block;
 		padding-bottom: max(min(perc($height, $width), $maxHeight), $minHeight);
 	}
 
-	& > img {
+	img,
+	svg,
+	video,
+	iframe {
 		width: 100%;
 		height: 100%;
 		position: absolute;
 		object-fit: cover;
 		top: 0;
 		left: 0;
+		color: transparent;
 	}
 
-	& > iframe {
-		width: 100%;
-		height: 100%;
-		position: absolute;
-		top: 0;
-		left: 0;
+	&[data-parallax-el] {
+		overflow: visible;
+		mask-image: none;
+
+		picture {
+			position: absolute !important;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+		}
+
+		img,
+		svg {
+			object-fit: contain;
+			position: absolute !important;
+		}
+	}
+}
+
+@define-mixin aspect-ratio-block $width, $height, $maxHeight: 9999px, $minHeight: 0px {
+	position: relative;
+
+	&::before {
+		content: '';
+		display: block;
+		padding-bottom: max(min(perc($height, $width), $maxHeight), $minHeight);
 	}
 }
 

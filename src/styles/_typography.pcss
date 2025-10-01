@@ -1,15 +1,188 @@
 .content-element {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  li {
+    a {
+      display: inline;
+      font: inherit;
+      color: var(--cl-green);
+      transition: color 0.3s ease;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      text-decoration: underline;
+      font-family: var(--font-md-bt);
 
+      &:hover {
+        color: var(--cl-green-dark);
+      }
+    }
+  }
+
+  &.cl-grey {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    li {
+      a {
+        color: var(--cl-grey);
+
+        &:hover {
+          color: var(--cl-green-dark);
+        }
+      }
+    }
+  }
+
+  li,
+  p {
+    &:not(:last-child) {
+      margin-bottom: ac(14px, 11px);
+    }
+  }
+
+  ol {
+    list-style-type: none;
+    counter-reset: num;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    li {
+      position: relative;
+      padding-left: ac(24px, 14px);
+      &:before {
+        position: absolute;
+        color: var(--cl-white);
+        top: 0;
+        left: ac(5px, 0px);
+        font: inherit;
+        content: counter(num) '.';
+        counter-increment: num;
+      }
+
+      &:not(:last-child) {
+        margin-bottom: ac(14px, 11px);
+      }
+    }
+
+    &:not(:last-child) {
+      margin-bottom: ac(14px, 11px);
+    }
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    li {
+      position: relative;
+      padding-left: ac(26px, 14px);
+
+      &:before {
+        position: absolute;
+        background: var(--cl-white);
+        border-radius: 50%;
+        content: '';
+        width: 5px;
+        height: 5px;
+        top: ac(12px, 10px);
+        left: ac(11px, 4px);
+      }
+
+      &:not(:last-child) {
+        margin-bottom: ac(14px, 11px);
+      }
+    }
+
+    &:not(:last-child) {
+      margin-bottom: ac(14px, 11px);
+    }
+  }
+
+  &.check-list {
+    ul {
+      li {
+        position: relative;
+        padding-left: ac(41px, 34px);
+        min-height: 24px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: flex-start;
+
+        &:before {
+          background: transparent;
+          width: auto;
+          height: auto;
+          position: absolute;
+          top: 0;
+          left: 0;
+          font-family: 'icomoon' !important;
+          speak: never;
+          font-style: normal;
+          font-weight: normal;
+          font-variant: normal;
+          text-transform: none;
+          line-height: 1;
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+          content: "\e904";
+          color: var(--cl-green);
+          font-size: 24px;
+        }
+
+        &:not(:last-child) {
+          margin-bottom: ac(16px, 10px);
+        }
+      }
+    }
+  }
 }
 
 .heading-64 {
-  font-size: ac(64px, 40px, 640);
+  font-size: ac(64px, 34px, 640);
   font-weight: 500;
   line-height: 1.2;
 
   &.bold-type {
     font-weight: 700;
   }
+
+  @media (max-width: 640px) {
+    br {
+      display: none;
+    }
+  }
+
+  @media (max-width: 374px) {
+    font-size: 30px;
+  }
+}
+
+.heading-60 {
+  font-size: ac(60px, 34px, 640);
+  font-weight: 700;
+  line-height: 1.2;
+
+  @media (max-width: 374px) {
+    font-size: 30px;
+  }
+}
+
+.heading-48 {
+  font-size: ac(48px, 26px, 640);
+  font-weight: 600;
+  line-height: 1.2;
 }
 
 .heading-40 {
@@ -21,6 +194,18 @@
 .heading-32 {
   font-size: ac(32px, 22px, 640);
   font-weight: 500;
+  line-height: 1.2;
+}
+
+.heading-20 {
+  font-size: ac(20px, 18px, 640);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.body-text-32 {
+  font-size: ac(32px, 22px, 640);
+  font-weight: 400;
   line-height: 1.2;
 }
 
@@ -63,6 +248,24 @@
 }
 
 .cl-green {
+  color: var(--cl-green);
+}
+
+.cl-red {
+  color: var(--cl-green);
+}
+
+.cl-grey {
+  color: var(--cl-grey);
+}
+
+.cl-red {
+  color: var(--cl-red);
+}
+
+.highlight-words {
+  display: inline-block;
+  font-weight: inherit;
   color: var(--cl-green);
 }
 

@@ -1,0 +1,196 @@
+.plan-sec {
+  padding-top: var(--main-py);
+  padding-bottom: var(--main-py);
+
+  &__wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  &__title {
+    &:not(:last-child) {
+      margin-bottom: ac(64px, 24px, 551);
+    }
+  }
+
+  &__container {
+    --gap-x: ac(40px, 16px, 640);
+    --columns: 2;
+    --gaps: 1;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: ac(40px, 24px, 551) var(--gap-x);
+    width: 100%;
+  }
+
+  &__item {
+    width: calc((100% - var(--gaps) * var(--gap-x)) / var(--columns));
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    border-radius: ac(32px, 16px, 551);
+    padding: ac(64px, 24px, 551) ac(32px, 16px);
+    position: relative;
+    z-index: 5;
+
+    &-bg {
+      position: absolute;
+      inset: 0;
+      z-index: -3;
+      border: 1px solid var(--cl-purple);
+      background: rgba(34, 0, 61, 0.2);
+      border-radius: inherit;
+    }
+
+    &:before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      padding: 1px;
+      background-color: #5A00A3;
+
+      background-image: radial-gradient(
+              200px circle at var(--mx, 50%) var(--my, 50%),
+              rgba(0, 255, 255, calc(var(--glow, 0))),
+              rgba(0, 255, 128, calc(var(--glow, 0) * 0.6)),
+              rgba(255, 0, 255, calc(var(--glow, 0) * 0.4)),
+              transparent 80%
+      );
+
+      background-clip: padding-box, border-box;
+      background-origin: border-box;
+
+      -webkit-mask:
+              linear-gradient(#fff 0 0) content-box,
+              linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    &:after {
+      content: "";
+      position: absolute;
+      inset: -20px;
+      border-radius: inherit;
+      background: radial-gradient(
+              300px circle at var(--mx, 50%) var(--my, 50%),
+              rgba(16, 185, 129, calc(var(--glow, 0) * 0.6)),
+              rgba(16, 185, 129, calc(var(--glow, 0) * 0.25)),
+              transparent 70%
+      );
+      filter: blur(30px);
+      opacity: 0.9;
+      z-index: -2;
+      pointer-events: none;
+    }
+  }
+
+  &__item-heading {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+
+    &:not(:last-child) {
+      margin-bottom: 8px;
+    }
+  }
+
+  &__item-price {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: flex-start;
+  }
+
+  &__item-price-info {
+    &.body-text-18 {
+      line-height: 1.4;
+    }
+  }
+
+  &__item-list {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding-top: ac(56px, 20px, 551);
+
+    &:not(:last-child) {
+      margin-bottom: ac(64px, 20px, 551);
+    }
+  }
+
+  &__item-buttons {
+    width: 100%;
+    justify-content: center;
+  }
+
+  &__item-description {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 767px) {
+  .plan-sec {
+    &__container {
+      --columns: 1;
+      --gaps: 0;
+    }
+  }
+}
+
+@media (max-width: 551px) {
+  .plan-sec {
+
+    &__item {
+      padding-bottom: 16px;
+    }
+
+    &__item-buttons {
+      .btn {
+        width: 100%;
+      }
+    }
+
+    &__item-price-info {
+      &.body-text-18 {
+        font-size: 15px;
+      }
+    }
+  }
+}
+
+@media (max-width: 374px) {
+  .plan-sec {
+
+    &__item-plan {
+      &.heading-40 {
+        font-size: 22px;
+      }
+    }
+
+    &__item-price {
+      &.heading-60 {
+        font-size: 28px;
+      }
+    }
+
+    &__item-price-info {
+      &.body-text-18 {
+        font-size: 14px;
+      }
+    }
+  }
+}

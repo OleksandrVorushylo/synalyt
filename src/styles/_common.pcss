@@ -1,5 +1,7 @@
 html {
 	font-size: 16px;
+	scrollbar-width: thin;
+	scrollbar-color: var(--cl-green-dark) transparent;
 }
 
 body {
@@ -11,14 +13,34 @@ body {
 	font-size: 16px;
 	font-weight: 500;
 	line-height: 1.2;
+	font-family: var(--font-main);
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
 
 	overflow-x: hidden;
+	scrollbar-width: thin;
+	scrollbar-color: var(--cl-green-dark) transparent;
 
 	&.disabled {
 		overflow-y: scroll;
 		position: fixed;
 
 		width: 100%;
+	}
+
+	&::-webkit-scrollbar {
+		width: 6px;
+	}
+
+	&::-webkit-scrollbar-track {
+		background: var(--cl-grey-dark);
+		border-radius: 0;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		background: var(--cl-green-dark);
+		border-radius: 0;
 	}
 }
 
@@ -31,16 +53,14 @@ body {
 	min-height: 100%; 
 	display: flex;
 	flex-direction: column;
-}
-
-img {
-	transition: opacity 0.1s ease;
-	&.lazyload {
-		opacity: 0;
+	&:not(.is-visible) {
+		overflow: hidden;
 	}
 
-	&.lazyloaded {
-		opacity: 1;
+	&.is-visible {
+		@media (max-width: 851px) {
+			overflow: hidden;
+		}
 	}
 }
 
@@ -54,11 +74,19 @@ img {
 
 .cont {
 	margin: 0 auto;
-	max-width: 1280px;
-	width: perc(1280);
+	max-width: 1260px;
+	width: perc(1260);
 
-	@mixin tab-md {
-		width: 89%;
+	@media (max-width: 1024px) {
+		width: 100%;
+		max-width: 100%;
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+
+	@media (max-width: 425px) {
+		padding-left: 17px;
+		padding-right: 17px;
 	}
 }
 

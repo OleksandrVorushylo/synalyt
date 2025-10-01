@@ -1,0 +1,124 @@
+:root {
+  /*Input*/
+  --project-input-px: 15px; /*padding-left*/
+  --project-input-py: ac(15px, 13px); /*padding-top/bottom*/
+  --project-input-br: 16px; /*border-radius*/
+  --project-input-bw: 1px; /*border-width*/
+  --project-input-bcl: var(--cl-purple); /*border-color*/
+  --project-input-focus-bcl: var(--cl-green-dark); /*focus border-color*/
+  --project-input-h: ac(54px, 48px); /*height*/
+  --project-input-ff: var(--font-main); /*font-family*/
+  --project-input-fz: ac(18px, 16px); /*font-size*/
+  --project-input-lh: 1.2; /*line-height*/
+  --project-input-fw: 400; /*font-width*/
+  --project-input-cl: var(--cl-white); /*color*/
+  --project-input-caret-cl: var(--project-input-cl); /*caret color*/
+  --project-input-placeholder-cl: var(--cl-grey); /*placeholder color*/
+  --project-input-placeholder-opacity: 1; /*placeholder opacity*/
+  --project-input-bg: rgba(34, 0, 61, 0.2); /*background-color*/
+  --project-input-textarea-pt: ac(15px, 13px);
+  --project-input-textarea-h: ac(156px, 120px); /*textarea scroll background*/
+  --project-input-textarea-scroll-bg: transparent; /*textarea scroll background*/
+  --project-input-textarea-scroll-cl: var(--cl-grey-dark); /*textarea scroll color*/
+}
+
+.project-input {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+
+  label {
+    color: var(--cl-grey);
+    font-size: ac(16px, 14px);
+    line-height: 1.2;
+    &:not(:last-child) {
+      margin-bottom: 8px;
+    }
+  }
+
+  input,
+  textarea {
+    width: 100%;
+    font-size: var(--project-input-fz);
+    font-weight: var(--project-input-fw);
+    line-height: var(--project-input-lh);
+    outline: none;
+    transition: box-shadow 0.25s ease, border-color 0.3s ease,
+      caret-color 0.3s ease, color 0.3s ease, opacity 0.3s ease;
+    padding: var(--project-input-py) var(--project-input-px);
+    min-height: var(--project-input-h);
+    background: transparent;
+    @mixin transparent-bg-input var(--project-input-cl);
+    border-radius: var(--project-input-br);
+    border: var(--project-input-bw) solid var(--project-input-bcl);
+    caret-color: var(--project-input-caret-cl);
+    color: var(--project-input-cl);
+    z-index: 1;
+
+    &::placeholder {
+      transition: all 0.3s ease;
+      color: var(--project-input-placeholder-cl);
+      opacity: var(--project-input-placeholder-opacity);
+    }
+
+    &:focus {
+      border-color: var(--project-input-focus-bcl);
+    }
+
+    &.error {
+      + .error-text {
+        max-height: 100px;
+        opacity: 1;
+        margin-top: 10px;
+      }
+    }
+  }
+
+  textarea {
+    min-height: var(--project-input-textarea-h) !important;
+    max-height: var(--project-input-textarea-h);
+    overflow-y: auto;
+    resize: none;
+    padding-top: var(--project-input-textarea-pt);
+
+    scrollbar-width: thin;
+    scrollbar-color: var(--project-input-textarea-scroll-cl)
+      var(--project-input-textarea-scroll-bg);
+    clip-path: inset(-1px -1px -1px -1px round var(--project-input-br));
+
+    &::-webkit-scrollbar {
+      width: 3px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: var(--project-input-textarea-scroll-bg);
+      border-radius: 2px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: var(--project-input-textarea-scroll-cl);
+      border-radius: 2px;
+    }
+  }
+}
+
+.is-safari {
+  .project-input {
+    textarea {
+      &::-webkit-scrollbar {
+        width: initial;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: initial;
+        border-radius: initial;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: initial;
+        border-radius: initial;
+      }
+    }
+  }
+}

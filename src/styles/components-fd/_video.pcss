@@ -1,0 +1,63 @@
+:root {
+  --plyr-color-main: var(--cl-green);
+  --plyr-video-control-color: var(--cl-white);
+  --plyr-video-control-color-hover: var(--cl-white);
+
+  /*--plyr-control-spacing: ac(76px, 44px);*/
+  @media (max-width: 375px) {
+    --plyr-control-spacing: 6px;
+  }
+}
+
+.plyr__control--overlaid {
+  background: rgba(34, 0, 61, 0.6) !important;
+  border: 2px solid var(--cl-purple) !important;
+  transform: scaleX(1) translateX(-48%) translateY(-50%);
+  padding: 5px;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  width: ac(108px, 50px) !important;
+  height: ac(108px, 50px);
+  opacity: 1 !important;
+  --plyr-video-control-color: var(--cl-white);
+  --plyr-video-control-color-hover: var(--cl-green);
+  border-radius: 50%;
+
+  &:hover {
+    background-color: #fff3 !important;
+    border-radius: 50%;
+  }
+
+  --plyr-control-icon-size: ac(37px, 20px);
+
+  svg {
+    left: 2px;
+  }
+}
+
+.plyr-hide-controls {
+  .plyr__controls {
+    opacity: 0;
+  }
+}
+
+.plyr__video-wrapper {
+  z-index: 0;
+}
+
+.plyr__poster {
+  background-size: cover;
+}
+
+@media (min-width: 480px) {
+  .plyr--video .plyr__controls {
+    padding-bottom: 20px;
+  }
+}
+
+@media (max-width: 390px) {
+  .plyr__volume input[type='range'] {
+    max-width: 60px;
+  }
+}

@@ -1,0 +1,123 @@
+.script-sec {
+  padding-top: var(--main-py);
+  padding-bottom: var(--main-py);
+
+  &__wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  &__title {
+    &:not(:last-child) {
+      margin-bottom: ac(64px, 24px, 551);
+    }
+  }
+
+  &__container {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    grid-row-gap: 20px;
+  }
+
+  &__content {
+    width: 59.21%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  &__text {
+    max-width: 700px;
+    &:not(:last-child) {
+      margin-bottom: ac(64px, 24px, 551);
+    }
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-column-gap: 16px;
+    grid-row-gap: ac(64px, 20px);
+
+    &:not(:last-child) {
+      margin-bottom: ac(64px, 24px, 551);
+    }
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  &__item-heading {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 16px;
+
+    &:not(:last-child) {
+      margin-bottom: 16px;
+    }
+  }
+
+  &__item-icon {
+    @mixin aspect-ratio 1, 1;
+    width: 32px;
+    min-width: 32px;
+  }
+
+  &__image {
+    @mixin aspect-ratio 469.56, 533.21;
+    width: 37.27%;
+
+    img {
+      object-fit: contain;
+    }
+  }
+}
+
+@media (max-width: 1023px) {
+  @media (min-width: 641px) {
+    .script-sec {
+      &__list {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+        grid-row-gap: 18px;
+      }
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  .script-sec {
+    &__container {
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      grid-row-gap: 24px;
+    }
+
+    &__content {
+      width: 100%;
+    }
+
+    &__image {
+      width: 100%;
+      max-width: 420px;
+    }
+  }
+}
+
+@media (max-width: 451px) {
+  .script-sec {
+    &__list {
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+  }
+}

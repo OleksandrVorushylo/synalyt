@@ -1,5 +1,5 @@
 {
-  "name": "gulp-start-project-2.0",
+  "name": "synalyt-landing",
   "version": "1.0.0",
   "description": "To make it easy for you to get started with GitLab, here's a list of recommended next steps.",
   "main": "gulpfile.js",
@@ -77,13 +77,5 @@
     "postcss-custom-properties": "^12.1.8",
     "prettier": "^2.7.1",
     "rfs": "^9.0.6"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://gitlab.com/bold_2022/gulp-start-project-2.0.git"
-  },
-  "bugs": {
-    "url": "https://gitlab.com/bold_2022/gulp-start-project-2.0/issues"
-  },
-  "homepage": "https://gitlab.com/bold_2022/gulp-start-project-2.0#readme"
+  }
 }

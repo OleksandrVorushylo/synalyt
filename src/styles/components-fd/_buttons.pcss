@@ -11,6 +11,14 @@
   }
 }
 
+.socials {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  gap: ac(32px, 16px);
+}
+
 .btn {
   padding: 16px;
   font-size: ac(24px, 20px, 551);
@@ -23,10 +31,15 @@
   cursor: pointer;
   background: var(--cl-green);
   border: 1px solid var(--cl-green);
+  transition: background-color .4s, border-color .4s, color .4s, transform .3s;
 
   &:hover, &:active {
     background-color: var(--cl-green-dark);
     border-color: var(--cl-green-dark);
+  }
+
+  &:active {
+    transform: scale(0.95);
   }
 
   &:focus {
@@ -36,11 +49,41 @@
   &.second-type {
     background-color: var(--cl-grey-light);
     border-color: var(--cl-grey-light);
+    color: var(--cl-black);
+
+    &:hover, &:active {
+      background-color: var(--cl-green-dark);
+      border-color: var(--cl-green-dark);
+      color: var(--cl-white);
+    }
+
+    &:focus {
+      border-color: var(--cl-purple);
+    }
   }
 
   &.small-size {
     font-size: ac(16px, 14px, 551);
     font-weight: 500;
     padding: 8px;
+  }
+}
+
+.social-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--cl-purple);
+  border-radius: 50%;
+  background: rgba(34, 0, 61, 0.2);
+  color: var(--cl-grey);
+  transition: .3s;
+  --size: ac(48px, 40px);
+  width: var(--size);
+  height: var(--size);
+  font-size: ac(27px, 24px);
+
+  &:hover, &:active {
+    color: var(--cl-white);
   }
 }
