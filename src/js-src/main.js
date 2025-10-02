@@ -243,7 +243,11 @@ if(logosContainersArr.length) {
 			const unitX = dx / radius || 0;
 			const unitY = dy / radius || 0;
 
-			logoParams.push({ radius, unitX, unitY, attractionForce: parseFloat(logo.dataset.attractionForce) || 50, startDelay: parseFloat(logo.dataset.startDelay) || 0 });
+			const initForce = container.clientWidth <= 300
+				? Math.min(+logo.dataset.attractionForce, 15)
+				: logo.dataset.attractionForce;
+
+			logoParams.push({ radius, unitX, unitY, attractionForce: parseFloat(initForce) || 50, startDelay: parseFloat(logo.dataset.startDelay) || 0 });
 
 			gsap.set(logo, { x: 0, y: 0 });
 		});
