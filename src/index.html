@@ -21,7 +21,7 @@
 									</p>
 								</div>
 								<div data-aos="fade" data-aos-delay="400" data-aos-offset="5" class="buttons hero-sec__buttons">
-									<button class="btn">
+									<button onclick="openPopup('request-popup'); return false;" class="btn">
 										Call me back
 									</button>
 								</div>
@@ -325,9 +325,9 @@
 									</p>
 								</div>
 								<div data-aos="fade-left" class="buttons platform-sec__buttons">
-									<a href="#" class="btn second-type">
+									<button onclick="openPopup('channels-popup'); return false;" class="btn second-type">
 										View all channels
-									</a>
+									</button>
 								</div>
 							</div>
 						</div>
@@ -741,21 +741,13 @@
 
 			<%- include('html/footer.ejs') %>
 
-			<div class="popup full-page-popup">
-				<div class="popup-block">
-					<div class="popup-header">
-						<a href="#" class="popup-logo">
-							<img src="./images/logo.svg" alt="Logo">
-						</a>
-					</div>
-					<div class="popup-wrap full-page-popup__wrap">
-						<div class="full-page-popup__content">
+			<div id="request-popup" class="popup request-popup">
+				<div class="popup-block request-popup__block">
+					<div data-simplebar class="popup-block__scroll request-popup__scroll">
+						<div class="popup-wrap request-popup__wrap">
 							<h3 class="popup-title heading-64">
-								Get <strong class="highlight-words">started</strong>
+								Leave a <strong class="highlight-words">request</strong>
 							</h3>
-							<h4 class="heading-28 popup-subtitle">
-								with your email adress
-							</h4>
 							<div class="content-element body-text-20 cl-grey popup-text">
 								<p>
 									To login, follow your company link, which you received when registering. Or enter your email and we will redirect you to the login page.
@@ -764,106 +756,231 @@
 							<form class="popup-form">
 								<div class="popup-form__grid">
 									<div class="project-input">
-										<label for="full-popup-start-email">Email</label>
-										<input type="email"
-													 name="email"
-													 id="full-popup-start-email"
-													 inputmode="email"
-													 placeholder="user@mail.com"
-										>
-									</div>
-								</div>
-								<div class="buttons popup-form__buttons">
-									<button class="btn second-type">
-										Submit
-									</button>
-								</div>
-							</form>
-						</div>
-
-						<div class="full-page-popup__content">
-							<h3 class="popup-title heading-64">
-								<strong class="highlight-words">Register</strong> now
-							</h3>
-							<h4 class="heading-28 popup-subtitle">
-								to continue
-							</h4>
-							<div class="content-element body-text-20 cl-grey popup-text">
-								<p>
-									Please fill out the form to continue working<br class="max-xl:hidden"> with <strong class="highlight-words">SYNALYT</strong>.
-								</p>
-							</div>
-							<form class="popup-form xl:pt-[32px]">
-								<div class="popup-form__grid">
-									<div class="project-input">
-										<label for="full-popup-register-company">Your company</label>
-										<input type="email"
-													 name="company"
-													 id="full-popup-register-company"
-													 inputmode="text"
-													 placeholder="Company"
-										>
-									</div>
-									<div class="project-input">
-										<label for="full-popup-register-name">Your name</label>
+										<label for="request-popup-name">Your name</label>
 										<input type="email"
 													 name="name"
-													 id="full-popup-register-name"
+													 id="request-popup-name"
 													 inputmode="text"
 													 placeholder="Name"
 										>
 									</div>
 									<div class="project-input">
-										<label for="full-popup-register-phone">Your phone</label>
-										<input type="tel"
-													 name="phone"
-													 id="full-popup-register-phone"
-													 inputmode="tel"
-													 placeholder="+38"
-										>
-									</div>
-									<div class="project-input">
-										<label for="full-popup-register-email">Email</label>
+										<label for="request-popup-email">Email</label>
 										<input type="email"
 													 name="email"
-													 id="full-popup-register-email"
+													 id="request-popup-email"
 													 inputmode="email"
 													 placeholder="user@mail.com"
 										>
 									</div>
-									<div class="project-input password-input">
-										<label for="full-popup-register-password">Password</label>
-										<div class="password-input__container">
-											<input type="password"
-														 name="password"
-														 id="full-popup-register-password"
-														 inputmode="text"
-														 placeholder="Password"
-											>
-										</div>
-									</div>
-									<div class="project-input password-input">
-										<label for="full-popup-register-confirm-password">Confirm password</label>
-										<div class="password-input__container">
-											<input type="password"
-														 name="confirm_password"
-														 id="full-popup-register-confirm-password"
-														 inputmode="text"
-														 placeholder="Password"
-											>
-										</div>
-									</div>
 								</div>
 								<div class="buttons popup-form__buttons">
-									<button class="btn second-type">
-										Submit
+									<button class="btn">
+										Send
 									</button>
+									<div data-popup-close class="btn second-type">
+										Cancel
+									</div>
 								</div>
 							</form>
 						</div>
 					</div>
 				</div>
-				<div class="popup-bg"></div>
+				<div data-popup-close class="popup-bg"></div>
+			</div>
+
+			<div id="get-started-popup" class="popup full-page-popup">
+				<div class="popup-header">
+					<div class="popup-header__wrap">
+						<a href="#" class="popup-logo">
+							<img src="./images/logo.svg" alt="Logo">
+						</a>
+					</div>
+				</div>
+				<div class="popup-block full-page-popup__block">
+					<div data-simplebar class="popup-block__scroll full-page-popup__scroll">
+						<div class="popup-wrap full-page-popup__wrap">
+							<div class="full-page-popup__content">
+								<h3 class="popup-title heading-64">
+									Get <strong class="highlight-words">started</strong>
+								</h3>
+								<h4 class="heading-28 popup-subtitle">
+									with your email adress
+								</h4>
+								<div class="content-element body-text-20 cl-grey popup-text">
+									<p>
+										To login, follow your company link, which you received when registering. Or enter your email and we will redirect you to the login page.
+									</p>
+								</div>
+								<form class="popup-form">
+									<div class="popup-form__grid">
+										<div class="project-input">
+											<label for="full-popup-start-email">Email</label>
+											<input type="email"
+														 name="email"
+														 id="full-popup-start-email"
+														 inputmode="email"
+														 placeholder="user@mail.com"
+											>
+										</div>
+									</div>
+									<div class="buttons popup-form__buttons">
+										<button class="btn second-type">
+											Submit
+										</button>
+									</div>
+								</form>
+							</div>
+
+							<div class="full-page-popup__line">
+								<div class="heading-64 full-page-popup__line-title">
+									or
+								</div>
+							</div>
+
+							<div class="full-page-popup__content">
+								<h3 class="popup-title heading-64">
+									<strong class="highlight-words">Register</strong> now
+								</h3>
+								<h4 class="heading-28 popup-subtitle">
+									to continue
+								</h4>
+								<div class="content-element body-text-20 cl-grey popup-text">
+									<p>
+										Please fill out the form to continue working<br class="max-xl:hidden"> with <strong class="highlight-words">SYNALYT</strong>.
+									</p>
+								</div>
+								<form class="popup-form xl:pt-[32px]">
+									<div class="popup-form__grid">
+										<div class="project-input">
+											<label for="full-popup-register-company">Your company</label>
+											<input type="email"
+														 name="company"
+														 id="full-popup-register-company"
+														 inputmode="text"
+														 placeholder="Company"
+											>
+										</div>
+										<div class="project-input">
+											<label for="full-popup-register-name">Your name</label>
+											<input type="email"
+														 name="name"
+														 id="full-popup-register-name"
+														 inputmode="text"
+														 placeholder="Name"
+											>
+										</div>
+										<div class="project-input">
+											<label for="full-popup-register-phone">Your phone</label>
+											<input type="tel"
+														 name="phone"
+														 id="full-popup-register-phone"
+														 inputmode="tel"
+														 placeholder="+38"
+											>
+										</div>
+										<div class="project-input">
+											<label for="full-popup-register-email">Email</label>
+											<input type="email"
+														 name="email"
+														 id="full-popup-register-email"
+														 inputmode="email"
+														 placeholder="user@mail.com"
+											>
+										</div>
+										<div class="project-input password-input">
+											<label for="full-popup-register-password">Password</label>
+											<div class="password-input__container">
+												<input type="password"
+															 name="password"
+															 id="full-popup-register-password"
+															 inputmode="text"
+															 placeholder="Password"
+												>
+												<div class="password-input__btn">
+													<i class="icon-show"></i>
+													<i class="icon-show-off hidden"></i>
+												</div>
+											</div>
+										</div>
+										<div class="project-input password-input">
+											<label for="full-popup-register-confirm-password">Confirm password</label>
+											<div class="password-input__container">
+												<input type="password"
+															 name="confirm_password"
+															 id="full-popup-register-confirm-password"
+															 inputmode="text"
+															 placeholder="Password"
+												>
+												<div class="password-input__btn">
+													<i class="icon-show"></i>
+													<i class="icon-show-off hidden"></i>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="buttons popup-form__buttons">
+										<button class="btn">
+											Register
+										</button>
+									</div>
+								</form>
+							</div>
+
+							<div class="full-page-popup__back-wr">
+								<div data-popup-close class="full-page-popup__back">
+									<i class="icon-arrow-prev"></i> Back
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div data-popup-close class="popup-bg"></div>
+			</div>
+
+			<div id="channels-popup" class="popup channels-popup">
+				<div class="popup-block channels-popup__block">
+					<div data-popup-close class="channels-popup__close">
+						<i class="icon-close-circle"></i>
+					</div>
+					<div data-simplebar class="popup-block__scroll channels-popup__scroll">
+						<div class="popup-wrap channels-popup__wrap">
+							<div class="channels-popup__list">
+								<a href="#" class="channels-popup__logo-link">
+									<img src="./images/channel-logo-1.svg" alt="Logo">
+								</a>
+								<a target="_blank" href="#" class="channels-popup__logo-link">
+									<img src="./images/channel-logo-2.svg" alt="Logo">
+								</a>
+								<a target="_blank" href="#" class="channels-popup__logo-link">
+									<img src="./images/channel-logo-3.svg" alt="Logo">
+								</a>
+								<a target="_blank" href="#" class="channels-popup__logo-link">
+									<img src="./images/channel-logo-4.svg" alt="Logo">
+								</a>
+								<a target="_blank" href="#" class="channels-popup__logo-link">
+									<img src="./images/channel-logo-5.svg" alt="Logo">
+								</a>
+								<a target="_blank" href="#" class="channels-popup__logo-link">
+									<img src="./images/channel-logo-6.svg" alt="Logo">
+								</a>
+								<a target="_blank" href="#" class="channels-popup__logo-link">
+									<img src="./images/channel-logo-7.svg" alt="Logo">
+								</a>
+								<a target="_blank" href="#" class="channels-popup__logo-link">
+									<img src="./images/channel-logo-8.svg" alt="Logo">
+								</a>
+								<a target="_blank" href="#" class="channels-popup__logo-link">
+									<img src="./images/channel-logo-9.svg" alt="Logo">
+								</a>
+								<a target="_blank" href="#" class="channels-popup__logo-link">
+									<img src="./images/channel-logo-10.svg" alt="Logo">
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div data-popup-close class="popup-bg"></div>
 			</div>
 		</div>
 

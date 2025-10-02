@@ -15,6 +15,19 @@ window.addEventListener('resize', () => {
 
 const headerComponent = document.getElementsByClassName('header')[0];
 
+function menuCloseFunc() {
+	const menuToggle = document.querySelector('.menu-toggle');
+	const navbarNav = document.querySelector('.navbar-nav');
+	const headerCloseWrapper = document.querySelector('.header-close-wrapper');
+
+	headerComponent.classList.remove('is-open-menu');
+	menuToggle.classList.remove('active');
+	navbarNav.classList.remove('active');
+	headerCloseWrapper.classList.remove('active');
+	scrollLock.clearQueueScrollLocks();
+	scrollLock.enablePageScroll();
+}
+
 // Header scroll
 if (headerComponent) {
 	const scrollContainer = () => document.documentElement || document.body;
@@ -655,6 +668,69 @@ if(planCards.length) {
 		});
 	});
 }
+
+window.initPasswordInputs = function initPasswordInputs() {
+	const wrappers = document.querySelectorAll('.password-input');
+	if (!wrappers.length) return;
+
+	wrappers.forEach((wrapper) => {
+		const input = wrapper.querySelector('input[type="password"], input[type="text"]');
+		const btn = wrapper.querySelector('.password-input__btn');
+		const iconShow = btn.querySelector('.icon-show');
+		const iconHide = btn.querySelector('.icon-show-off');
+
+		if (!input || !btn) return;
+
+		input.type = "password";
+		iconShow.classList.remove('hidden');
+		iconHide.classList.add('hidden');
+
+		btn.addEventListener('click', () => {
+			const isHidden = input.type === "password";
+
+			if (isHidden) {
+				input.type = "text";
+				iconShow.classList.add('hidden');
+				iconHide.classList.remove('hidden');
+			} else {
+				input.type = "password";
+				iconShow.classList.remove('hidden');
+				iconHide.classList.add('hidden');
+			}
+		});
+	});
+};
+
+initPasswordInputs();
+
+window.openPopup = function openPopup(id) {
+	const popup = document.getElementById(id);
+	if (!popup) return;
+	menuCloseFunc();
+	popup.classList.add('is-open');
+	scrollLock.clearQueueScrollLocks();
+	scrollLock.disablePageScroll();
+	scrollLock.addScrollableSelector('.simplebar-content-wrapper');
+	scrollLock.addScrollableSelector('.scroll-content');
+
+	function closePopup() {
+		popup.classList.remove('is-open');
+		popup.removeEventListener('click', backdropHandler);
+		const closes = popup.querySelectorAll('[data-popup-close]');
+		closes.forEach(btn => btn.removeEventListener('click', closePopup));
+		scrollLock.enablePageScroll();
+	}
+
+	const closes = popup.querySelectorAll('[data-popup-close]');
+	closes.forEach(btn => btn.addEventListener('click', closePopup));
+
+	function backdropHandler(e) {
+		if (e.target === popup) {
+			closePopup();
+		}
+	}
+	popup.addEventListener('click', backdropHandler);
+};
 
 AOS.init({
 	offset: 50,

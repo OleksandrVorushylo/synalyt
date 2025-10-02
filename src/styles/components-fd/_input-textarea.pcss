@@ -122,3 +122,31 @@
     }
   }
 }
+
+.password-input {
+  &__container {
+    width: 100%;
+    position: relative;
+
+    input {
+      padding-right: 48px;
+    }
+  }
+
+  &__btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    --size: 16px;
+    width: var(--size);
+    height: var(--size);
+    transition: .3s;
+    cursor: pointer;
+    color: var(--cl-grey);
+    right: 16px;
+
+    &:hover {
+      color: var(--cl-white);
+    }
+  }
+}
