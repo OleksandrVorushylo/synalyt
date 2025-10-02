@@ -32,7 +32,6 @@ export const path = {
 		files: `${buildFolder}/files/`,
 		lottie: `${buildFolder}/lottie/`,
 
-		scanPHP: `${buildFolder}/`,
 		tailwindConfig: `${buildFolder}/`
 	},
 	src: {
@@ -62,7 +61,6 @@ export const path = {
 
 		lottie: `${srcFolder}/lottie/**.json`,
 
-		scanPHP: "scan.php",
 		tailwindConfig: "tailwind.config.cjs"
 	},
 

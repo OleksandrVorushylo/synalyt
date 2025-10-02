@@ -25,8 +25,6 @@ import { fonts } from "./config/gulp-tasks/fonts.js";
 import { serve, stylelintServe } from "./config/gulp-tasks/_serve.js";
 import { lottieJSON } from "./config/gulp-tasks/lottie.js";
 
-import { scanPHP } from "./config/gulp-tasks/scanPHP.js";
-
 const devTasks = gulp.series(
   clear,
   fonts,
@@ -43,7 +41,6 @@ const devTasks = gulp.series(
 );
 
 const buildTasks = gulp.series(
-  scanPHP,
   tailwindConfigMigration,
   fonts,
   stylesMove,
