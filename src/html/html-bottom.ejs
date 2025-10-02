@@ -5,35 +5,3 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 
 <script defer type="module" src="./js/main.js"></script>
-
-<!-- ВИДАЛИТИ НА SD -->
-<script>
-    var popupFD = document.getElementById("popup");
-    var popupTitle = popupFD.querySelector(".popup__title");
-    var popupBlock = popupFD.querySelector(".popup__block");
-    var popupContent = popupFD.querySelector("#popup-content");
-
-    window.pushPopup = function pushPopup(
-        parentBlock,
-        title = "",
-        classHelper = ""
-    ) {
-        popupTitle.innerText = title;
-
-        if (classHelper) {
-            const cls = classHelper.split(" ");
-            popupBlock.classList.add(...cls);
-        }
-
-        popupContent.innerHTML = "";
-        popupContent.innerHTML = document.querySelector(parentBlock).innerHTML;
-
-        popup.classList.add("active");
-        scrollLock.disablePageScroll(document.querySelector(".navbar-nav .menu"));
-    };
-
-    window.closePopup = function closePopup() {
-        $("#popup").removeClass("active");
-        scrollLock.enablePageScroll();
-    };
-</script>
