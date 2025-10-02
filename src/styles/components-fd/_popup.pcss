@@ -50,6 +50,32 @@
 	}
 }
 
+.popup-title, .popup-subtitle, .popup-text {
+	&:not(:last-child) {
+		margin-bottom: 16px;
+	}
+}
+
+.popup-form {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: flex-start;
+
+	&__grid {
+		width: 100%;
+		display: grid;
+		grid-template-columns: repeat(1, minmax(0, 1fr));
+		grid-column-gap: ac(32px, 16px);
+		grid-row-gap: ac(32px, 16px);
+
+		&:not(:last-child) {
+			margin-bottom: ac(32px, 20px);
+		}
+	}
+}
+
 .popup {
 	background: var(--cl-black);
 
