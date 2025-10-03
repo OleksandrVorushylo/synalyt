@@ -37,6 +37,12 @@
     text-align: center;
     max-width: ac(1130px, 600px, 640);
 
+    .whitespace {
+      &:first-child {
+        display: none;
+      }
+    }
+
     &:not(:last-child) {
       margin-bottom: 24px;
     }
@@ -52,6 +58,50 @@
 
   &__buttons {
     padding-top: ac(104px, 40px, 551);
+  }
+
+  &.only-hero-sec {
+    background: var(--cl-black);
+    .hero-sec {
+
+      &__title {
+        &:not(:last-child) {
+          margin-bottom: ac(32px, 24px);
+        }
+      }
+
+      &__wrap {
+        margin-top: 0;
+        min-height: 100vh;
+      }
+
+      &__buttons {
+        padding-top: 10px;
+      }
+    }
+  }
+
+  &.policy-sec {
+    .hero-sec {
+      &__wrap {
+        min-height: unset;
+        justify-content: flex-start;
+      }
+
+      &__content {
+        align-items: flex-start;
+      }
+
+      &__title, &__text {
+        text-align: left;
+      }
+
+      &__title {
+        &:not(:last-child) {
+          margin-bottom: ac(64px, 32px);
+        }
+      }
+    }
   }
 }
 

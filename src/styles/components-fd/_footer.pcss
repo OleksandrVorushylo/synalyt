@@ -72,9 +72,39 @@
 
   &__bottom-info {
     grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: ac(20px, 12px) ac(40px, 20px, 1200);
+    flex-wrap: wrap;
+  }
 
-    .footer__navbar {
-      justify-content: center;
+  &__dev {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+    font-size: 16px;
+    line-height: normal;
+    font-weight: 500;
+
+    img {
+      --size: 24px;
+      width: var(--size);
+      min-width: var(--size);
+      height: var(--size);
+
+      img {
+        object-fit: contain;
+      }
+    }
+
+    @media (min-width: 551px) {
+      margin-left: auto;
+    }
+
+    @media (min-width: 1024px) {
+      min-width: ac(365px, 314px, 1024);
     }
   }
 

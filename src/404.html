@@ -2,14 +2,33 @@
 <html lang="en">
 <%- include('html/html-top.ejs', {title: "404 page not found"}) %>
 <body>
-<main class="single-page-404">
-    <h1>Page not found</h1>
-    <p>
-      The page may have changed the address or never existed
-    </p>
-    <a class="btn" href="./">
-      <span>Home page</span>
-    </a>
-</main>
+<div id="site">
+  <main class="main" id="content">
+    <section class="hero-sec only-hero-sec">
+      <div class="cont">
+        <div class="hero-sec__wrap">
+          <div class="hero-sec__content">
+            <div data-aos class="title-animation heading-64 bold-type hero-sec__title">
+              <h1 data-splitting>
+                <strong class="highlight-words">Page</strong> not found
+              </h1>
+            </div>
+            <div data-aos="fade" data-aos-delay="300" data-aos-offset="5" class="content-element cl-grey body-text-24 hero-sec__text">
+              <p>
+                The page may have changed the address or never existed
+              </p>
+            </div>
+            <div data-aos="fade" data-aos-delay="400" data-aos-offset="5" class="buttons hero-sec__buttons">
+              <a href="./index.html" class="btn">
+                Home page
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+<%- include('html/html-bottom.ejs') %>
 </body>
 </html>

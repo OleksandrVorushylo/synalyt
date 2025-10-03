@@ -268,23 +268,26 @@ if(logosContainersArr.length) {
 		}
 
 		logos.forEach((logo, index) => {
-			const { radius, unitX, unitY, attractionForce, startDelay } = logoParams[index];
 
-			gsap.to({}, {
-				duration: duration,
-				delay: startDelay,
-				repeat: -1,
-				ease: "none",
-				onUpdate: function() {
-					const prog = this.progress();
-					const sin = Math.sin(2 * Math.PI * prog);
-					const offset = attractionForce * sin;
-					const dx = unitX * offset;
-					const dy = unitY * offset;
-					gsap.set(logo, { x: dx, y: dy });
-					updateLines();
-				}
-			});
+			if(!container.classList.contains('not-starting-animation')) {
+				const { radius, unitX, unitY, attractionForce, startDelay } = logoParams[index];
+
+				gsap.to({}, {
+					duration: duration,
+					delay: startDelay,
+					repeat: -1,
+					ease: "none",
+					onUpdate: function() {
+						const prog = this.progress();
+						const sin = Math.sin(2 * Math.PI * prog);
+						const offset = attractionForce * sin;
+						const dx = unitX * offset;
+						const dy = unitY * offset;
+						gsap.set(logo, { x: dx, y: dy });
+						updateLines();
+					}
+				});
+			}
 		});
 
 		updateLines();
@@ -715,13 +718,13 @@ window.openPopup = function openPopup(id) {
 	scrollLock.clearQueueScrollLocks();
 	scrollLock.disablePageScroll();
 	scrollLock.addScrollableSelector('.simplebar-content-wrapper');
-	scrollLock.addScrollableSelector('.scroll-content');
+	scrollLock.addScrollableSelector(".scroll-content");
 
 	function closePopup() {
-		popup.classList.remove('is-open');
-		popup.removeEventListener('click', backdropHandler);
-		const closes = popup.querySelectorAll('[data-popup-close]');
-		closes.forEach(btn => btn.removeEventListener('click', closePopup));
+		popup.classList.remove("is-open");
+		popup.removeEventListener("click", backdropHandler);
+		const closes = popup.querySelectorAll("[data-popup-close]");
+		closes.forEach((btn) => btn.removeEventListener("click", closePopup));
 		scrollLock.enablePageScroll();
 	}
 
@@ -744,3 +747,5 @@ AOS.init({
 	once: true,
 	startEvent: 'DOMContentLoaded',
 });
+
+const scroll = new SmoothScroll("a[href*=\"#\"]");
