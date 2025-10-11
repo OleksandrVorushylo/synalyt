@@ -10,6 +10,18 @@
   font-display: block;
 }
 
+@font-face {
+  font-family: 'icomoon';
+  src:  url('../fonts/icomoon.eot?g0bh62');
+  src:  url('../fonts/icomoon.eot?g0bh62#iefix') format('embedded-opentype'),
+  url('../fonts/icomoon.ttf?g0bh62') format('truetype'),
+  url('../fonts/icomoon.woff?g0bh62') format('woff'),
+  url('../fonts/icomoon.svg?g0bh62#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
 [class^="icon-"], [class*=" icon-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: 'icomoon' !important;
@@ -25,6 +37,9 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-instagram:before {
+  content: "\e915";
+}
 .icon-facebook:before {
   content: "\e914";
 }

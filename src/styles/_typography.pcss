@@ -192,7 +192,7 @@
     ul {
       li {
         position: relative;
-        padding-left: ac(41px, 34px);
+        padding-left: ac(40px, 32px, 320, 769);
         min-height: 24px;
         display: inline-flex;
         align-items: center;
@@ -203,8 +203,8 @@
           width: auto;
           height: auto;
           position: absolute;
-          top: 0;
-          left: 0;
+          top: 2px;
+          left: 2px;
           font-family: 'icomoon' !important;
           speak: never;
           font-style: normal;
@@ -216,7 +216,7 @@
           -moz-osx-font-smoothing: grayscale;
           content: "\e904";
           color: var(--cl-green);
-          font-size: 24px;
+          font-size: 20px;
         }
 
         &:not(:last-child) {
@@ -228,12 +228,20 @@
 }
 
 .heading-64 {
-  font-size: ac(64px, 34px, 640);
+  font-size: ac(64px, 48px, 1024);
   font-weight: 500;
   line-height: 1.2;
 
   &.bold-type {
     font-weight: 700;
+  }
+  
+  @media (max-width: 1023px) {
+    font-size: ac(48px, 40px, 769, 1024);
+  }
+
+  @media (max-width: 768px) {
+    font-size: ac(40px, 30px, 320, 768);
   }
 
   @media (max-width: 640px) {
@@ -248,31 +256,51 @@
 }
 
 .heading-60 {
-  font-size: ac(60px, 34px, 640);
+  font-size: ac(60px, 48px, 1024);
   font-weight: 700;
   line-height: 1.2;
 
-  @media (max-width: 374px) {
-    font-size: 30px;
+  @media (max-width: 1023px) {
+    font-size: ac(48px, 40px, 769, 1024);
+  }
+
+  @media (max-width: 768px) {
+    font-size: ac(40px, 32px, 320, 768);
   }
 }
 
 .heading-48 {
-  font-size: ac(48px, 26px, 640);
+  font-size: ac(48px, 40px, 1024);
   font-weight: 600;
   line-height: 1.2;
+
+  @media (max-width: 1023px) {
+    font-size: ac(40px, 32px, 769, 1024);
+  }
+
+  @media (max-width: 768px) {
+    font-size: ac(32px, 24px, 320, 768);
+  }
 }
 
 .heading-40 {
-  font-size: ac(40px, 26px, 640);
+  font-size: ac(40px, 32px, 1024);
   font-weight: 500;
   line-height: 1.2;
+
+  @media (max-width: 1023px) {
+    font-size: ac(32px, 24px, 769, 1024);
+  }
 }
 
 .heading-32 {
-  font-size: ac(32px, 22px, 640);
+  font-size: ac(32px, 24px, 1024);
   font-weight: 500;
   line-height: 1.2;
+
+  @media (max-width: 1023px) {
+    font-size: ac(24px, 20px, 769, 1024);
+  }
 }
 
 .heading-28 {
@@ -283,35 +311,55 @@
 
 .heading-20 {
   font-size: ac(20px, 18px, 640);
-  font-weight: 700;
+  font-weight: 600;
   line-height: 1.2;
 }
 
 .body-text-32 {
-  font-size: ac(32px, 22px, 640);
+  font-size: ac(32px, 30px, 1024);
   font-weight: 400;
   line-height: 1.2;
+
+  @media (max-width: 1023px) {
+    font-size: ac(30px, 24px, 769, 1024);
+  }
+
+  @media (max-width: 768px) {
+    font-size: ac(24px, 20px, 320, 768);
+  }
 }
 
 .body-text-28 {
-  font-size: ac(28px, 20px, 640);
+  font-size: ac(28px, 20px, 1024);
   font-weight: 400;
   line-height: 1.2;
+
+  @media (max-width: 1023px) {
+    font-size: ac(20px, 16px, 769, 1024);
+  }
 }
 
 .body-text-24 {
-  font-size: ac(24px, 18px, 640);
+  font-size: ac(24px, 18px, 1024);
   font-weight: 400;
   line-height: 1.3;
+
+  @media (max-width: 1023px) {
+    font-size: ac(18px, 16px, 769, 1024);
+  }
 }
 
 .body-text-20 {
-  font-size: ac(20px, 16px, 640);
+  font-size: ac(20px, 18px, 1024);
   font-weight: 400;
   line-height: 1.3;
 
   &.semibold-type {
     font-weight: 600;
+  }
+
+  @media (max-width: 1023px) {
+    font-size: ac(18px, 16px, 769, 1024);
   }
 }
 

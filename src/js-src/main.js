@@ -18,11 +18,13 @@ const headerComponent = document.getElementsByClassName('header')[0];
 function menuCloseFunc() {
 	const menuToggle = document.querySelector('.menu-toggle');
 	const navbarNav = document.querySelector('.navbar-nav');
+	const navbarLanguage = document.querySelector('.header-language-wr');
 	const headerCloseWrapper = document.querySelector('.header-close-wrapper');
 
 	headerComponent.classList.remove('is-open-menu');
 	menuToggle.classList.remove('active');
 	navbarNav.classList.remove('active');
+	navbarLanguage.classList.remove('is-open-menu');
 	headerCloseWrapper.classList.remove('active');
 	scrollLock.clearQueueScrollLocks();
 	scrollLock.enablePageScroll();
@@ -83,11 +85,13 @@ if (headerComponent) {
 	function menuToggleFunc() {
 		const menuToggle = document.querySelector('.menu-toggle');
 		const navbarNav = document.querySelector('.navbar-nav');
+		const navbarLanguage = document.querySelector('.header-language-wr');
 		const headerCloseWrapper = document.querySelector('.header-close-wrapper');
 
 		headerComponent.classList.add('is-open-menu');
 		menuToggle.classList.toggle('active');
 		navbarNav.classList.toggle('active');
+		navbarLanguage.classList.toggle('is-open-menu');
 		headerCloseWrapper.classList.toggle('active');
 
 		// LockScroll when burger open and enable when closed and enable scroll on menu
@@ -243,7 +247,7 @@ if(logosContainersArr.length) {
 			const unitX = dx / radius || 0;
 			const unitY = dy / radius || 0;
 
-			const initForce = container.clientWidth <= 300
+			const initForce = container.clientWidth <= 400
 				? Math.min(+logo.dataset.attractionForce, 15)
 				: logo.dataset.attractionForce;
 
@@ -349,7 +353,7 @@ if(accordionsArr.length) {
 	});
 }
 
-const table = document.querySelector('.table-sec__table');
+/*const table = document.querySelector('.table-sec__table');
 if (table) {
 	const ths = Array.from(table.querySelectorAll('thead th'));
 
@@ -401,7 +405,7 @@ if (table) {
 
 	window.addEventListener('resize', transformTable);
 	transformTable();
-}
+}*/
 
 const videoPlayer = document.getElementsByClassName('video-player')[0];
 if (videoPlayer) {

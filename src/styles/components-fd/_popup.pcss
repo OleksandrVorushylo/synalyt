@@ -73,7 +73,7 @@
 
 .popup-header {
 	width: 100vw;
-	height: ac(101px, 84px);
+	height: ac(101px, 81px, 769, 1024);
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -84,7 +84,7 @@
 	opacity: 0;
 
 	&__wrap {
-		height: ac(101px, 84px);
+		height: ac(101px, 81px, 769, 1024);
 		margin: 0 auto;
 		max-width: 1260px;
 		width: perc(1260);
@@ -95,19 +95,19 @@
 		@media (max-width: 1024px) {
 			width: 100%;
 			max-width: 100%;
-			padding-left: 20px;
-			padding-right: 20px;
+			padding-left: 32px;
+			padding-right: 32px;
 		}
 
-		@media (max-width: 425px) {
-			padding-left: 17px;
-			padding-right: 17px;
+		@media (max-width: 951px) {
+			padding-left: 16px;
+			padding-right: 16px;
 		}
 	}
 }
 
 .popup-logo {
-	width: ac(160px, 140px);
+	width: ac(160px, 120px, 769, 1024);
 	@mixin aspect-ratio 160, 49;
 
 	&:hover {
@@ -140,11 +140,11 @@
 		width: 100%;
 		display: grid;
 		grid-template-columns: repeat(1, minmax(0, 1fr));
-		grid-column-gap: ac(32px, 16px);
-		grid-row-gap: ac(32px, 16px);
+		grid-column-gap: ac(32px, 16px, 320, 769);
+		grid-row-gap: ac(32px, 16px, 320, 769);
 
 		&:not(:last-child) {
-			margin-bottom: ac(32px, 20px);
+			margin-bottom: ac(32px, 16px, 320, 769);
 		}
 	}
 
@@ -176,11 +176,11 @@
 		.request-popup {
 			&__wrap {
 				width: calc(100% + 10px);
-				padding: ac(48px, 32px, 640) ac(48px, 20px, 551);
+				padding: ac(48px, 32px, 640) ac(48px, 16px, 551);
 			}
 
 			&__scroll {
-				max-height: calc(var(--vh, 1vh) * 70);
+				max-height: calc(var(--vh, 1vh) * 77);
 			}
 		}
 	}
@@ -215,6 +215,11 @@
 				&:hover {
 					color: var(--cl-green-dark);
 				}
+				
+				@media (max-width: 551px) {
+					top: 8px;
+					right: 8px;
+				}
 			}
 			
 			&__wrap {
@@ -222,22 +227,19 @@
 				padding: 48px;
 
 				@media (max-width: 551px) {
-					padding-left: 16px;
-					padding-right: 16px;
-					padding-top: 64px;
-					padding-bottom: 16px;
+					padding: 48px 16px;
 				}
 			}
 
 			&__scroll {
-				max-height: calc(var(--vh, 1vh) * 70);
+				max-height: calc(var(--vh, 1vh) * 77);
 			}
 
 			&__list {
 				display: grid;
 				grid-template-columns: repeat(2, minmax(0, 1fr));
-				grid-column-gap: ac(16px, 12px);
-				grid-row-gap: ac(16px, 12px);
+				grid-column-gap: ac(16px, 24px);
+				grid-row-gap: ac(16px, 24px);
 				padding: 1px;
 			}
 
@@ -306,7 +308,7 @@
 				align-items: stretch;
 				justify-content: space-between;
 				flex-wrap: wrap;
-				padding-top: calc(ac(64px, 32px) + ac(101px, 84px));
+				padding-top: calc(ac(64px, 32px, 1024) + ac(101px, 81px, 769, 1024));
 				padding-bottom: ac(64px, 20px);
 			}
 
@@ -328,6 +330,14 @@
 				flex-direction: column;
 				align-items: flex-start;
 				justify-content: flex-start;
+
+				@media (max-width: 1024px) {
+				  width: 44.79%;
+				}
+
+				.popup-form {
+					padding-top: 16px;
+				}
 			}
 
 			&__line {
@@ -365,6 +375,12 @@
 				justify-content: flex-start;
 				min-height: 61px;
 				margin-top: -61px;
+
+				@media (min-width: 770px) {
+				  &:first-child {
+						display: none;
+					}
+				}
 			}
 
 			&__back {
@@ -390,32 +406,46 @@
 			}
 		}
 
-		@media (max-width: 640px) {
+		@media (max-width: 769px) {
 		  .full-page-popup {
 				&__wrap {
 					flex-direction: column;
-					align-items: flex-start;
+					align-items: center;
 					justify-content: flex-start;
-					gap: 16px;
+					gap: 32px;
+					padding-top: 81px;
+				}
+
+				&__back-wr {
+					width: 100%;
+					margin-bottom: -32px;
+					&:last-child {
+						display: none;
+					}
 				}
 
 				&__content {
 					width: 100%;
-					max-width: 100%;
+					max-width: 460px;
+				}
+
+				&__line-title {
+					display: none;
 				}
 
 				&__line {
-					padding-top: 10px;
-					padding-bottom: 10px;
+					padding-top: 1px;
+					padding-bottom: 1px;
 					justify-content: center;
 					align-items: center;
 					width: 100%;
+					font-size: 0;
 
 					&:before {
 						width: auto;
 						height: 1px;
 						top: 50%;
-						transform: translateY(-50%);
+						transform: translateY(50%);
 						left: 0;
 						right: 0;
 						bottom: auto;
@@ -429,7 +459,7 @@
 					max-width: unset;
 				}
 
-				&__back {
+				/*&__back {
 					border: 1px solid rgba(90, 0, 163, 0.5);
 					border-radius: 8px;
 					width: 100%;
@@ -438,7 +468,7 @@
 					justify-content: center;
 					align-items: center;
 					background: rgba(90, 0, 163, 0.1);
-				}
+				}*/
 			}
 		}
 	}

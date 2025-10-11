@@ -2,6 +2,14 @@
   padding-top: var(--main-py);
   padding-bottom: var(--main-py);
 
+  &:last-of-type {
+    padding-bottom: ac(128px, 96px, 1024);
+
+    @media (max-width: 768px) {
+      padding-bottom: 64px;
+    }
+  }
+
   &__wrap {
     display: flex;
     flex-direction: column;
@@ -11,7 +19,7 @@
 
   &__title {
     &:not(:last-child) {
-      margin-bottom: ac(64px, 24px, 551);
+      margin-bottom: var(--title-mb);
     }
   }
 
@@ -44,13 +52,13 @@
     &.content-element {
       p,ul,ol {
         &:not(:last-child) {
-          margin-bottom: ac(32px, 16px);
+          margin-bottom: 32px;
         }
       }
     }
 
     &:not(:last-child) {
-      margin-bottom: ac(48px, 24px);
+      margin-bottom: ac(48px, 32px, 320, 769);
     }
   }
 
@@ -64,6 +72,12 @@
     }
   }
 
+  &__second-text--mob {
+    @media (min-width: 641px) {
+      display: none;
+    }
+  }
+
   &__form {
     max-width: ac(480px, 460px);
   }
@@ -72,11 +86,11 @@
     width: 100%;
     display: grid;
     grid-template-columns: repeat(1, minmax(0, 1fr));
-    grid-column-gap: ac(32px, 16px);
-    grid-row-gap: ac(32px, 18px);
+    grid-column-gap: ac(32px, 16px, 320, 768);
+    grid-row-gap: ac(32px, 18px, 320, 768);
 
     &:not(:last-child) {
-      margin-bottom: ac(32px, 20px);
+      margin-bottom: ac(32px, 16px, 320, 768);
     }
   }
 
@@ -89,18 +103,87 @@
   }
 }
 
+@media (max-width: 1024px) {
+  .form-sec {
+    &__content {
+      width: 41.88%;
+    }
+
+    &__form {
+      width: 50.00%;
+    }
+  }
+}
+
+@media (max-width: 851px) {
+  .form-sec {
+    &__content {
+      width: 48.44%;
+    }
+
+    &__form {
+      width: 48.85%;
+    }
+
+    &__text {
+      max-width: 300px;
+    }
+  }
+}
+
+@media (min-width: 641px) {
+  .form-sec {
+    &__title {
+      &:not(:last-child) {
+        margin-bottom: 64px;
+      }
+    }
+  }
+}
+
 @media (max-width: 640px) {
   .form-sec {
     &__container {
       flex-direction: column;
       align-items: flex-start;
       justify-content: flex-start;
-      grid-row-gap: 30px;
+      grid-row-gap: 32px;
+    }
+
+    &__title {
+      max-width: 180px;
+    }
+
+    &__subtitle {
+      &.body-text-32 {
+        font-size: 24px;
+      }
     }
 
     &__content, &__form {
       width: 100%;
       max-width: 100%;
+    }
+
+    &__text {
+      &:not(:last-child) {
+        margin-bottom: 0;
+      }
+    }
+
+    &__second-text {
+      display: none;
+    }
+
+    &__second-text--mob {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+
+      &.body-text-20 {
+        font-size: 14px;
+      }
     }
   }
 }

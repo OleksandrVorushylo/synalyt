@@ -53,10 +53,15 @@
   width: 100%;
   max-width: 600px;
 
+  @media (max-width: 851px) {
+    @mixin aspect-ratio-block 1, 1;
+    width: 100%;
+  }
+
   .logo-item {
     @mixin aspect-ratio-block 1, 1;
-    --size: 12.00%; /*72*/
-    --icon-size: 50.00%; /*36*/
+    --size: 72px; /*72*/
+    --icon-size: 36px; /*36*/
     position: absolute;
     width: var(--size);
     border-radius: 50%;
@@ -128,26 +133,26 @@
     }
 
     &.circle-size-36 {
-      --size: 6.00%;
-      --icon-size: 58.33%; /*21*/
+      --size: 36px;
+      --icon-size: 21px; /*21*/
       min-width: 18px;
     }
 
     &.circle-size-48 {
-      --size: 8.00%;
-      --icon-size: 56.25%; /*27*/
+      --size: 48px;
+      --icon-size: 27px; /*27*/
       min-width: 24px;
     }
 
     &.circle-size-64 {
-      --size: 10.67%;
-      --icon-size: 56.25%; /*36*/
+      --size: 64px;
+      --icon-size: 36px; /*36*/
       min-width: 32px;
     }
 
     &.center-logo {
-      --size: 16.00%; /*96*/
-      --icon-size: 62.50%; /*60*/
+      --size: 96px; /*96*/
+      --icon-size: 60px; /*60*/
       z-index: 2;
       min-width: 48px;
     }

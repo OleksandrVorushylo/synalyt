@@ -5,7 +5,8 @@
   top: 0;
   left: 0;
   z-index: 999;
-  padding: ac(26px, 14px) 0;
+  padding: ac(26px, 16px, 1024) 0;
+  min-height: 81px;
   display: flex;
   align-items: center;
   transition: all 0.3s ease-in-out;
@@ -125,7 +126,7 @@
 
   .logo {
     height: 100%;
-    width: ac(160px, 140px);
+    width: ac(160px, 120px, 1024);
     @mixin aspect-ratio 160, 49;
     flex-shrink: 0;
     transition: transform 0.25s ease, width 0.25s ease;
@@ -180,7 +181,7 @@
     /*transition: opacity 0.2s ease;
     opacity: 0;*/
 
-    @media (min-width: 1201px) {
+    @media (min-width: 1024px) {
       width: auto;
       flex: 1;
       align-items: center;
@@ -189,13 +190,13 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: ac(40px, 20px, 1200);
+        gap: ac(40px, 31px, 1200);
 
         .menu-list {
           display: flex;
           align-items: center;
           justify-content: center;
-          gap: ac(40px, 20px, 1200);
+          gap: ac(40px, 31px, 1200);
         }
 
         &:after {
@@ -231,7 +232,7 @@
   .menu-additional-content {
     display: none;
 
-    @media (max-width: 1200px) {
+    @media (max-width: 1023px) {
       /*transform: translateY(-8px);*/
       display: flex;
       flex-direction: column;
@@ -248,12 +249,12 @@
 
   &:not(.header-mobile) {
     .menu-item {
-      @media (min-width: 1201px) {
+      @media (min-width: 1024px) {
         padding: 5px 0;
       }
 
       &:hover {
-        @media (min-width: 1201px) {
+        @media (min-width: 1024px) {
           .dropdown-menu {
             display: block;
           }
@@ -318,7 +319,7 @@
 
 /* ----------------------- Common desktop header Mobile HEADER ----------------------- */
 
-@media (max-width: 1200px) {
+@media (max-width: 1023px) {
   .header:not(.header-mobile) {
     .burger,
     .menu-toggle {
@@ -517,6 +518,17 @@
       }
     }
 
+    .header-language-wr {
+      transition: opacity .4s;
+      pointer-events: none;
+      opacity: 0;
+
+      &.is-open-menu {
+        opacity: 1;
+        pointer-events: auto;
+      }
+    }
+
     .dropdown-menu {
       position: relative;
       top: 0;
@@ -570,6 +582,10 @@
     stroke-linecap: round;
   }
 
+  .middle {
+    stroke-dasharray: 30 121;
+  }
+
   .top {
     stroke-dasharray: 40 121;
   }
@@ -597,7 +613,7 @@
   margin-right: 32px;
   margin-left: auto;
 
-  @media (min-width: 1201px) {
+  @media (min-width: 1024px) {
     display: none !important;
   }
 
@@ -612,11 +628,11 @@
   align-items: center;
   flex: 1;
 
-  @media (min-width: 1201px) {
+  @media (min-width: 1024px) {
     min-width: ac(215px, 160px, 1200);
   }
 
-  @media (max-width: 1200px) {
+  @media (max-width: 1023px) {
     flex: none;
   }
 

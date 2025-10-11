@@ -11,7 +11,7 @@
 
   &__title {
     &:not(:last-child) {
-      margin-bottom: ac(64px, 24px, 551);
+      margin-bottom: var(--title-mb);
     }
   }
 
@@ -30,7 +30,7 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
-    padding: ac(32px, 24px) 16px;
+    padding: ac(32px, 16px, 320, 769) 16px;
     border-radius: 16px;
     position: relative;
     z-index: 1;
@@ -83,20 +83,20 @@
     max-width: 510px;
 
     &:not(:last-child) {
-      margin-bottom: ac(32px, 20px);
+      margin-bottom: ac(32px, 16px, 1024);
     }
   }
 
   &__item-text {
     &:not(:last-child) {
-      margin-bottom: ac(32px, 20px);
+      margin-bottom: ac(32px, 16px, 1024);
     }
   }
 
   &__item-title, &__item-text {
     &:nth-child(2) {
       &:not(:last-child) {
-        margin-bottom: ac(64px, 40px);
+        margin-bottom: ac(64px, 32px, 1024);
       }
     }
   }
@@ -116,15 +116,61 @@
   }
 }
 
+@media (max-width: 1024px) {
+  .conversion-sec {
+    &__item-text {
+      max-width: 420px;
+    }
+  }
+}
+
+@media (max-width: 769px) {
+  .conversion-sec {
+    &__item-image {
+      @media (min-width: 641px) {
+        width: 95.54%;
+      }
+    }
+  }
+}
+
 @media (max-width: 640px) {
   .conversion-sec {
     &__list {
       grid-template-columns: repeat(1, minmax(0, 1fr));
+
+      .line-decor {
+        display: none;
+      }
     }
 
     &__item {
       padding-left: 0;
       padding-right: 0;
+
+      &:nth-child(2) {
+        &:after {
+          content: '';
+          position: absolute;
+          top: 0;
+          height: 1px;
+          left: 0;
+          right: 0;
+          background: linear-gradient(90deg, #201A2F 0%, #5A00A3 50.24%, #201A2F 100%);
+          transform: translateY(50%);
+        }
+      }
+
+      &:before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        height: 1px;
+        left: 0;
+        right: 0;
+        background: linear-gradient(90deg, #201A2F 0%, #5A00A3 50.24%, #201A2F 100%);
+        transform: translateY(50%);
+      }
     }
 
     &__item-image {

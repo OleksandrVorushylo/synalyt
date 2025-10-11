@@ -32,10 +32,15 @@
   --font-main: "Inter", sans-serif;
 
   /* --mobile-menu-start-point and @custom-media --mobile-menu-start-point must be the same */
-  --mobile-menu-start-point: 1200;
+  --mobile-menu-start-point: 1023;
 
   --vh: calc(100vh / 100);
 
-  --main-py: ac(64px, 32px);
+  --title-mb: ac(64px, 32px, 1024);
+  --main-py: ac(64px, 48px, 1024);
   --main-full-py: calc(var(--main-py) * 2);
+  
+  @media (max-width: 1024px) {
+    --main-py: ac(48px, 32px, 769, 1024);
+  }
 }

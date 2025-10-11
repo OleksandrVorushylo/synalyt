@@ -11,7 +11,7 @@
 
   &__title {
     &:not(:last-child) {
-      margin-bottom: ac(64px, 24px, 551);
+      margin-bottom: var(--title-mb);
     }
   }
 
@@ -109,7 +109,7 @@
       margin-left: auto;
       margin-right: auto;
       font-size: 18px;
-      margin-bottom: 8px;
+      margin-bottom: 4px;
 
       i {
         font-size: 22px;
@@ -140,6 +140,14 @@
       i {
         font-size: 20px;
       }
+    }
+  }
+}
+
+@media (max-width: 374px) {
+  .video-sec {
+    &__more-btn {
+      font-size: 14px;
     }
   }
 }
