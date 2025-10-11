@@ -3,7 +3,7 @@ module.exports = {
     /**
      * FD content
      * **/
-    content: ["./src/**/*.{html,js,ejs}"],
+    // content: ["./src/**/*.{html,js,ejs}"],
 
     /**
      * SD content
@@ -29,4 +29,3 @@ module.exports = {
     },
     plugins: [],
 };
-
