@@ -740,10 +740,55 @@ window.openPopup = function openPopup(id) {
 	popup.addEventListener('click', backdropHandler);
 };
 
+window.updateConversionCardsMinHeight = function updateConversionCardsMinHeight() {
+	const conversionCards = document.querySelectorAll(".conversion-sec__item-image");
+	if (!conversionCards.length) return;
+
+	conversionCards.forEach(card => card.style.minHeight = "");
+
+	if (window.innerWidth < 640) return;
+
+	const imgs = Array.from(conversionCards).flatMap(card =>
+		Array.from(card.querySelectorAll("img"))
+	);
+
+	const applyHeights = () => {
+		for (let i = 0; i < conversionCards.length; i += 2) {
+			const card1 = conversionCards[i];
+			const card2 = conversionCards[i + 1];
+			if (!card2) continue;
+
+			const maxH = Math.max(card1.offsetHeight, card2.offsetHeight);
+			card1.style.minHeight = `${maxH}px`;
+			card2.style.minHeight = `${maxH}px`;
+		}
+	};
+
+	if (!imgs.length) {
+		applyHeights();
+		return;
+	}
+
+	let loadedCount = 0;
+	const onImgLoad = () => {
+		loadedCount++;
+		if (loadedCount === imgs.length) applyHeights();
+	};
+
+	imgs.forEach(img => {
+		if (img.complete) {
+			onImgLoad();
+		} else {
+			img.addEventListener("load", onImgLoad, { once: true });
+			img.addEventListener("error", onImgLoad, { once: true });
+		}
+	});
+};
+
+
 const conversionCards = document.querySelectorAll(".conversion-sec__item-image");
 
-if(conversionCards.length) {
-
+if (conversionCards.length) {
 	conversionCards.forEach((card) => {
 		const bgEl = document.createElement("div");
 		bgEl.classList.add("conversion-sec__item-img-bg");
@@ -759,7 +804,7 @@ if(conversionCards.length) {
 			const dist = Math.sqrt(dx * dx + dy * dy);
 
 			const maxDist = Math.sqrt(window.innerWidth ** 2 + window.innerHeight ** 2);
-			const glow = Math.max(0, 1 - dist / (maxDist / 2)); // 0..1
+			const glow = Math.max(0, 1 - dist / (maxDist / 2));
 
 			const x = ((e.clientX - rect.left) / rect.width) * 100;
 			const y = ((e.clientY - rect.top) / rect.height) * 100;
@@ -768,7 +813,10 @@ if(conversionCards.length) {
 			card.style.setProperty("--my", `${y}%`);
 			card.style.setProperty("--glow", glow.toFixed(2));
 		});
-	})
+	});
+
+	window.addEventListener("load", updateConversionCardsMinHeight);
+	window.addEventListener("resize", updateConversionCardsMinHeight);
 }
 
 AOS.init({
