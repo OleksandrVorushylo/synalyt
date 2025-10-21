@@ -660,16 +660,13 @@ if(planCards.length) {
 			const cx = rect.left + rect.width / 2;
 			const cy = rect.top + rect.height / 2;
 
-			// расстояние от центра карточки до курсора
 			const dx = e.clientX - cx;
 			const dy = e.clientY - cy;
 			const dist = Math.sqrt(dx * dx + dy * dy);
 
-			// нормализация: ближе → ярче, дальше → тусклее
 			const maxDist = Math.sqrt(window.innerWidth ** 2 + window.innerHeight ** 2);
 			const glow = Math.max(0, 1 - dist / (maxDist / 2)); // 0..1
 
-			// позиция курсора относительно карточки (%)
 			const x = ((e.clientX - rect.left) / rect.width) * 100;
 			const y = ((e.clientY - rect.top) / rect.height) * 100;
 
@@ -742,6 +739,37 @@ window.openPopup = function openPopup(id) {
 	}
 	popup.addEventListener('click', backdropHandler);
 };
+
+const conversionCards = document.querySelectorAll(".conversion-sec__item-image");
+
+if(conversionCards.length) {
+
+	conversionCards.forEach((card) => {
+		const bgEl = document.createElement("div");
+		bgEl.classList.add("conversion-sec__item-img-bg");
+		card.appendChild(bgEl);
+
+		document.addEventListener("mousemove", (e) => {
+			const rect = card.getBoundingClientRect();
+			const cx = rect.left + rect.width / 2;
+			const cy = rect.top + rect.height / 2;
+
+			const dx = e.clientX - cx;
+			const dy = e.clientY - cy;
+			const dist = Math.sqrt(dx * dx + dy * dy);
+
+			const maxDist = Math.sqrt(window.innerWidth ** 2 + window.innerHeight ** 2);
+			const glow = Math.max(0, 1 - dist / (maxDist / 2)); // 0..1
+
+			const x = ((e.clientX - rect.left) / rect.width) * 100;
+			const y = ((e.clientY - rect.top) / rect.height) * 100;
+
+			card.style.setProperty("--mx", `${x}%`);
+			card.style.setProperty("--my", `${y}%`);
+			card.style.setProperty("--glow", glow.toFixed(2));
+		});
+	})
+}
 
 AOS.init({
 	offset: 50,
