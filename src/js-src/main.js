@@ -1,6 +1,37 @@
 import "./meta-settings.js";
 import Swiper from "./plugins/swiper-bundle.esm.browser.min.js";
 
+(function () {
+	const mq = window.matchMedia('(prefers-color-scheme: dark)');
+
+	function updateFavicon(isDark) {
+		const links = document.querySelectorAll('link[rel="icon"]');
+		links.forEach(link => {
+			const currentHref = link.getAttribute('href');
+
+			const parts = currentHref.split('/');
+			const fileName = parts.pop();
+			const path = parts.join('/');
+
+			const newFileName = isDark
+				? fileName.replace('light', 'dark')
+				: fileName.replace('dark', 'light');
+
+			const newHref = `${path}/${newFileName}?v=${Date.now()}`;
+
+			link.setAttribute('href', newHref);
+		});
+	}
+
+	updateFavicon(mq.matches);
+
+	if (typeof mq.addEventListener === 'function') {
+		mq.addEventListener('change', e => updateFavicon(e.matches));
+	} else if (typeof mq.addListener === 'function') {
+		mq.addListener(e => updateFavicon(e.matches));
+	}
+})();
+
 // First we get the viewport height and we multiple it by 1% to get a value for a vh unit
 const vhUtils = window.innerHeight * 0.01;
 // Then we set the value in the --vh custom property to the root of the document
@@ -28,6 +59,18 @@ function menuCloseFunc() {
 	headerCloseWrapper.classList.remove('active');
 	scrollLock.clearQueueScrollLocks();
 	scrollLock.enablePageScroll();
+}
+
+const menuLinksArr = document.querySelectorAll('.header .menu-link');
+
+if(menuLinksArr.length){
+	menuLinksArr.forEach(link => {
+		if (link.href && link.href.includes('#')) {
+			link.addEventListener('click', () => {
+				menuCloseFunc();
+			});
+		}
+	});
 }
 
 // Header scroll
